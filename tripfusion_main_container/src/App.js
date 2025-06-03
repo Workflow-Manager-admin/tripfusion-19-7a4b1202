@@ -1,9 +1,26 @@
 import React, { useState } from 'react';
 import './App.css';
+import TripForm from './components/TripForm';
 
 // PUBLIC_INTERFACE
 function App() {
   const [activeTab, setActiveTab] = useState("plan");
+
+  // Trip form state lives in parent so it's available for itinerary/gen components
+  const [tripForm, setTripForm] = useState({
+    destination: "",
+    startDate: "",
+    endDate: "",
+    interests: [],
+    budget: "",
+  });
+
+  // Future use: handle trip form submit, trigger itinerary etc.
+  const handleTripFormSubmit = (formValues) => {
+    // Placeholder: would later pass this data onward to backend, AI, etc.
+    // eslint-disable-next-line no-console
+    console.log("Trip planned:", formValues);
+  };
 
   return (
     <div className="tf-app">
@@ -57,17 +74,22 @@ function App() {
       <div className="tf-main-container">
         {/* Main Map Area */}
         <main className="tf-main-map">
-          {/* Placeholder for main map view or content by tab */}
-          <div className="tf-map-placeholder">
-            {activeTab === "plan" && <span>Map & trip planning area (future: Google Maps integration)</span>}
-            {activeTab === "itinerary" && <span>Day-by-day itinerary will appear here.</span>}
-            {activeTab === "flights" && <span>Flight search results area.</span>}
-            {activeTab === "hotels" && <span>Hotel search and booking area.</span>}
-          </div>
+          {activeTab === "plan" ? (
+            <TripForm
+              formData={tripForm}
+              onFormChange={setTripForm}
+              onSubmit={handleTripFormSubmit}
+            />
+          ) : (
+            <div className="tf-map-placeholder">
+              {activeTab === "itinerary" && <span>Day-by-day itinerary will appear here.</span>}
+              {activeTab === "flights" && <span>Flight search results area.</span>}
+              {activeTab === "hotels" && <span>Hotel search and booking area.</span>}
+            </div>
+          )}
         </main>
-        {/* Sidebar for Itinerary */}
+        {/* Sidebar for Itinerary or trip quick details */}
         <aside className="tf-sidebar">
-          {/* Placeholder for itinerary, quick details, actions, etc */}
           <div className="tf-sidebar-placeholder">
             <strong>Itinerary Sidebar</strong>
             <div>
