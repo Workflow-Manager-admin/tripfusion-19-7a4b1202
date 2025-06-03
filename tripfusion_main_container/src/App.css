@@ -178,18 +178,21 @@ body {
   background: var(--accent);
   color: #fff;
   border: none;
-  border-radius: 4px;
-  padding: 10px 24px;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 5px;
+  padding: 11px 26px;
+  font-size: 1.05rem;
+  font-weight: 700;
   cursor: pointer;
   margin-top: 12px;
-  transition: background 0.18s;
-  box-shadow: 0 1px 2px rgb(0 0 0 / 7%);
+  margin-bottom: 0;
+  transition: background 0.17s, box-shadow 0.14s;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+  outline: none;
 }
-
-.tf-accent-btn:hover {
+.tf-accent-btn:hover,
+.tf-accent-btn:focus {
   background: #ffb300;
+  box-shadow: 0 1.5px 6px #ffc10744;
 }
 
 .navbar {
