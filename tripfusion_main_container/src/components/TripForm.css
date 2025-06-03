@@ -1,0 +1,78 @@
+.tf-trip-form {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px 0 rgb(30 30 60 / 4%);
+  padding: 26px 22px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border: 1.5px solid var(--border-color);
+  margin: 0 auto;
+}
+
+.tf-trip-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tf-trip-form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.tf-trip-form-label {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--primary);
+  margin-bottom: 3px;
+}
+
+.tf-trip-form-input,
+.tf-trip-form-input[type="number"],
+.tf-trip-form-input[type="date"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1.5px solid var(--border-color);
+  font-size: 1rem;
+  outline: none;
+  background: #f8fafd;
+  color: var(--text-color);
+  transition: border-color 0.18s;
+}
+
+.tf-trip-form-input:focus {
+  border-color: var(--primary);
+}
+
+.tf-trip-form-interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.tf-trip-form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  background: transparent;
+  font-size: 0.98rem;
+  cursor: pointer;
+  font-weight: 400;
+  transition:
+    background 0.17s,
+    color 0.17s,
+    border-color 0.17s;
+  user-select: none;
+}
+
+.tf-trip-form-checkbox input[type="checkbox"] {
+  accent-color: var(--primary);
+  margin-right: 4px;
+}
