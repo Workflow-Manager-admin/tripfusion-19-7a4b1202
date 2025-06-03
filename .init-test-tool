@@ -1,0 +1,4 @@
+{
+    "command": "npm run test",
+    "working_directory": "/home/kavia/workspace/code-generation/tripfusion-19-7a4b1202/tripfusion_main_container"
+}
