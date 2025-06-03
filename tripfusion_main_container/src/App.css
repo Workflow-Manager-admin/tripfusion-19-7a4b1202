@@ -44,17 +44,18 @@ body {
   position: sticky;
   top: 0;
   z-index: 99;
-  box-shadow: 0 2px 8px 0 rgb(30 30 60 / 4%);
+  box-shadow: var(--shadow-1);
 }
 
 .tf-logo {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
+  user-select: none;
 }
 
 .tf-header-center {
@@ -71,14 +72,15 @@ body {
   width: 280px;
   max-width: 100%;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
   background: #fff;
   color: var(--text-color);
   margin: 0 24px;
 }
-
-.tf-search-input:focus {
+.tf-search-input:focus,
+.tf-search-input:active {
   border-color: var(--secondary);
+  box-shadow: 0 0 0 1.5px var(--primary),0 1px 3px #1976d225;
 }
 
 /* Tabs */
