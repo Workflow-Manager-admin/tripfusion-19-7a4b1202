@@ -77,11 +77,24 @@ function App() {
         {/* Main Map Area */}
         <main className="tf-main-map">
           {activeTab === "plan" ? (
-            <TripForm
-              formData={tripForm}
-              onFormChange={setTripForm}
-              onSubmit={handleTripFormSubmit}
-            />
+            <div style={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}>
+              <MapView
+                destination={tripForm.destination}
+                interests={tripForm.interests}
+                className="tf-mapview"
+              />
+              <div style={{ height: "32px" }} /> {/* Gap */}
+              <TripForm
+                formData={tripForm}
+                onFormChange={setTripForm}
+                onSubmit={handleTripFormSubmit}
+              />
+            </div>
           ) : (
             <div className="tf-map-placeholder">
               {activeTab === "itinerary" && <span>Day-by-day itinerary will appear here.</span>}
