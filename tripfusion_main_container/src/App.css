@@ -1,19 +1,23 @@
 :root {
-  /* TripFusion color palette */
   --primary: #1976D2;
   --secondary: #43A047;
   --accent: #FFC107;
   --bg-light: #f5f7fa;
   --bg-header: #fff;
-  --text-color: #212121;
-  --text-secondary: #555555;
+  --text-color: #232233;
+  --text-secondary: #506083;
   --border-color: #e0e0e0;
+  --focus-outline: 2px solid #1976D2;
+  --shadow-1: 0 2px 8px 0 rgb(30 30 60 / 6%);
+  --shadow-2: 0 4px 12px 0 rgb(80 136 221 / 9%);
+  --sidebar-bg: #f7fafc;
 }
 
 body {
   margin: 0;
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  background-color: var(--bg-light);
+  font-size: 1rem;
+  background: var(--bg-light);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,6 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--bg-light);
+  font-size: 1rem;
 }
 
 /* Header / AppBar */
