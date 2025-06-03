@@ -4,6 +4,8 @@ import './App.css';
 import TripForm from './components/TripForm';
 import MapView from './components/MapView';
 import './components/MapView.css';
+import FlightList from './components/FlightList';
+import HotelList from './components/HotelList';
 // PUBLIC_INTERFACE
 function App() {
   const [activeTab, setActiveTab] = useState("plan");
@@ -98,8 +100,26 @@ function App() {
           ) : (
             <div className="tf-map-placeholder">
               {activeTab === "itinerary" && <span>Day-by-day itinerary will appear here.</span>}
-              {activeTab === "flights" && <span>Flight search results area.</span>}
-              {activeTab === "hotels" && <span>Hotel search and booking area.</span>}
+              {activeTab === "flights" && (
+                // FlightList displays available flights for chosen destination/dates, styled for TripFusion
+                <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+                  <FlightList
+                    destination={tripForm.destination}
+                    startDate={tripForm.startDate}
+                    endDate={tripForm.endDate}
+                  />
+                </div>
+              )}
+              {activeTab === "hotels" && (
+                // HotelList displays hotel options for chosen destination/dates, styled for TripFusion
+                <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+                  <HotelList
+                    destination={tripForm.destination}
+                    startDate={tripForm.startDate}
+                    endDate={tripForm.endDate}
+                  />
+                </div>
+              )}
             </div>
           )}
         </main>
