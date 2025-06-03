@@ -13,7 +13,7 @@
 body {
   margin: 0;
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  background-color: var(--base-dark);
+  background-color: var(--bg-light);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
