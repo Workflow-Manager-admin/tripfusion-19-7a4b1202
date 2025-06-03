@@ -99,22 +99,31 @@ body {
   background: none;
   border: none;
   color: var(--text-secondary);
-  padding: 10px 22px 9px 22px;
-  font-size: 1rem;
-  font-weight: 500;
+  padding: 10px 26px 9px 26px;
+  font-size: 1.09rem;
+  font-weight: 600;
   cursor: pointer;
   border-radius: 6px 6px 0 0;
   outline: none;
-  transition: background 0.18s, color 0.18s;
+  transition: background 0.15s, color 0.15s, border-bottom 0.15s;
   border-bottom: 3px solid transparent;
+  position: relative;
+  letter-spacing: 0.01em;
 }
-
+.tf-tab:not(.active):hover,
+.tf-tab:not(.active):focus {
+  background: #edf4ff;
+  color: var(--primary);
+  border-bottom: 3px solid var(--primary);
+  z-index: 2;
+}
 .tf-tab.active {
   color: var(--primary);
   border-bottom: 3px solid var(--primary);
   background: #fff;
+  z-index: 2;
+  pointer-events: none;
 }
-
 /* Main container with sidebar */
 .tf-main-container {
   display: flex;
