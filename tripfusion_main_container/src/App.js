@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
+// PUBLIC_INTERFACE
 import TripForm from './components/TripForm';
-
+import MapView from './components/MapView';
+import './components/MapView.css';
 // PUBLIC_INTERFACE
 function App() {
   const [activeTab, setActiveTab] = useState("plan");

@@ -1,0 +1,54 @@
+.tf-mapview-container {
+  background: #fff;
+  border-radius: 17px;
+  box-shadow: 0 2px 8px 0 rgb(30 30 60 / 6%);
+  padding: 21px 12px 6px 12px;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tf-mapview-demo {
+  position: relative;
+  width: 380px;
+  height: 240px;
+  margin: 0 auto;
+  border-radius: 17px;
+  box-shadow: 0 4px 12px 0 rgba(80,136,221,0.07);
+  border: 2px solid var(--primary, #1976D2);
+  overflow: hidden;
+  background: #e5f5fd;
+}
+
+.tf-mapview-demo svg {
+  border-radius: 17px;
+}
+
+.tf-mapview-legend {
+  margin-top: 18px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.tf-mapview-legend-dot {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 5px;
+  border: 2px solid #fff;
+}
+
+.tf-map-placeholder {
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary, #1976D2);
+  opacity: 0.9;
+  font-size: 1.15rem;
+}
