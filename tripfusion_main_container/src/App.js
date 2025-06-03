@@ -6,6 +6,9 @@ import MapView from './components/MapView';
 import './components/MapView.css';
 import FlightList from './components/FlightList';
 import HotelList from './components/HotelList';
+// Import OpenAI itinerary helper
+import { fetchOpenAIItinerary } from './openai';
+
 // PUBLIC_INTERFACE
 function App() {
   const [activeTab, setActiveTab] = useState("plan");
@@ -19,9 +22,27 @@ function App() {
     budget: "",
   });
 
+  // Itinerary AI state
+  const [itinerary, setItinerary] = useState("");
+  const [itineraryLoading, setItineraryLoading] = useState(false);
+  const [itineraryError, setItineraryError] = useState("");
+
+  // Handles itinerary generation via OpenAI
+  const handleGenerateItinerary = async () => {
+    setItinerary("");
+    setItineraryError("");
+    setItineraryLoading(true);
+    try {
+      const result = await fetchOpenAIItinerary(tripForm);
+      setItinerary(result);
+    } catch (err) {
+      setItineraryError(err?.message || "An error occurred while generating itinerary.");
+    }
+    setItineraryLoading(false);
+  };
+
   // Future use: handle trip form submit, trigger itinerary etc.
   const handleTripFormSubmit = (formValues) => {
-    // Placeholder: would later pass this data onward to backend, AI, etc.
     // eslint-disable-next-line no-console
     console.log("Trip planned:", formValues);
   };
@@ -128,10 +149,49 @@ function App() {
           <div className="tf-sidebar-placeholder">
             <strong>Itinerary Sidebar</strong>
             <div>
-              <em>Planned itinerary or day summary will display here.</em>
+              <em>
+                {itinerary
+                  ? "Your custom itinerary:"
+                  : "Planned itinerary or day summary will display here."
+                }
+              </em>
+            </div>
+            {/* Loading, error, or itinerary */}
+            <div style={{ minHeight: "140px", width: "100%", marginTop: "10px" }}>
+              {itineraryLoading && (
+                <div style={{ color: "var(--secondary)", fontWeight: 500 }}>Generating itinerary…</div>
+              )}
+              {itineraryError && (
+                <div style={{ color: "#e57373", fontWeight: 500 }}>
+                  <span role="img" aria-label="error">⚠️</span> {itineraryError}
+                </div>
+              )}
+              {itinerary && !itineraryLoading && !itineraryError && (
+                <pre
+                  style={{
+                    whiteSpace: "pre-wrap",
+                    fontSize: "1.05em",
+                    color: "var(--primary)",
+                    background: "#f3f7fa",
+                    padding: "8px 14px",
+                    borderRadius: 7,
+                    margin: "0 -4px"
+                  }}
+                >{itinerary}</pre>
+              )}
             </div>
             <div style={{ marginTop: "1rem" }}>
-              <button className="tf-accent-btn">Generate Itinerary</button>
+              <button
+                className="tf-accent-btn"
+                onClick={handleGenerateItinerary}
+                disabled={itineraryLoading || !tripForm.destination || !tripForm.startDate || !tripForm.endDate}
+                style={{
+                  opacity: itineraryLoading || !tripForm.destination || !tripForm.startDate || !tripForm.endDate ? 0.6 : 1,
+                  pointerEvents: itineraryLoading || !tripForm.destination || !tripForm.startDate || !tripForm.endDate ? "none" : "auto"
+                }}
+              >
+                {itineraryLoading ? "Generating..." : "Generate Itinerary"}
+              </button>
             </div>
           </div>
         </aside>
