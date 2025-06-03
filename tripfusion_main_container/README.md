@@ -13,6 +13,33 @@ This project provides a minimal React template with a clean, modern UI and minim
 
 In the project directory, you can run:
 
+---
+
+### Environment Variables: API KEY Setup
+
+For live AI itinerary and hotel/flight search, you need to provide API keys via a `.env` file in the `tripfusion_main_container` root. **This file should NOT be committed to your repository.**
+
+#### OpenAI API (Itinerary Generation)
+- Sign up and create an API key at https://platform.openai.com/api-keys
+- In your `.env` file, add:
+
+  ```
+  REACT_APP_OPENAI_API_KEY=sk-xxxYOUR_OPENAI_KEYxxx
+  ```
+
+- This is used to generate your personalized travel itinerary on the itinerary sidebar.
+
+#### RapidAPI (Hotels, Flights)
+- To use Booking.com and Skyscanner integrations, add:
+
+  ```
+  REACT_APP_RAPIDAPI_KEY=your-rapidapi-key
+  ```
+
+After updating your `.env`, restart the dev server.
+
+---
+
 ### `npm start`
 
 Runs the app in development mode.\
